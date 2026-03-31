@@ -1,303 +1,188 @@
 //1
-//import java.util.Scanner ;
-//public class Main {
-//    static void printnum(int n) {
-//        if(n==0) return ;
-//        printnum(n-1);
-//        System.out.print(n+" ");
-//
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        printnum(n);
-//
-//    }
-//}
+// def printnum(n):
+//     if n == 0:
+//         return
+//     printnum(n - 1)
+//     print(n, end=" ")
+
+// n = int(input())
+// printnum(n)
 
 //2
-//import java.util.Scanner;
-//public class Main {
-//    static void printNumbers(int n) {
-//        if (n == 0) return;
-//        System.out.print(n + " ");
-//        printNumbers(n - 1);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        printNumbers(n);
-//    }
-//}
+// def print_numbers(n):
+//     if n == 0:
+//         return
+//     print(n, end=" ")
+//     print_numbers(n - 1)
 
-//3
-//import java.util.Scanner;
-//
-//public class Main {
-//    static int sumN(int n) {
-//        if (n == 1) return 1;
-//        return n + sumN(n - 1);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        System.out.println(sumN(n));
-//    }
-//}
+// n = int(input())
+// print_numbers(n)
 
-//4
-//import java.util.Scanner;
-//public class Main {
-//    static int factN(int n) {
-//        if (n == 1) return 1;
-//        return n * factN(n - 1);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        System.out.println(factN(n));
-//    }
-//}
+// //3
+// def sum_n(n):
+//     if n == 1:
+//         return 1
+//     return n + sum_n(n - 1)
 
-//5
-//import java.util.Scanner;
-//public class Main {
-//    static int power(int a, int b) {
-//        if (b == 0) return 1;
-//        return a * power(a, b - 1);
-//    }
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int a = sc.nextInt();
-//        int b = sc.nextInt();
-//        System.out.println(power(a, b));
-//    }
-//}
+// n = int(input())
+// print(sum_n(n))
 
-//6
-//import java.util.Scanner;
-//public class Main {
-//    static int sumDigits(int n) {
-//        if (n < 10) return n;
-//        return n % 10 + sumDigits(n / 10);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        System.out.println(sumDigits(n));
-//    }
-//}
+// //4
+// def fact(n):
+//     if n == 1:
+//         return 1
+//     return n * fact(n - 1)
 
-//7
-//import java.util.Scanner;
-//public class Main {
-//    static int countDigits(int n) {
-//        if (n < 10) return 1;
-//        return 1 + countDigits(n / 10);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        System.out.println(countDigits(n));
-//    }
-//}
+// n = int(input())
+// print(fact(n))
 
-//8
-//import java.util.Scanner;
-//public class Main {
-//    static void reverse(int n) {
-//        if (n == 0) return;
-//        System.out.print(n % 10);
-//        reverse(n / 10);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        reverse(n);
-//    }
-//}
+// //5
+// def power(a, b):
+//     if b == 0:
+//         return 1
+//     return a * power(a, b - 1)
 
-//9
-//import java.util.Scanner;
-//public class Main {
-//    static int fib(int n) {
-//        if (n == 0) return 0;
-//        if (n == 1) return 1;
-//        return fib(n - 1) + fib(n - 2);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        System.out.println(fib(n));
-//    }
-//}
+// a = int(input())
+// b = int(input())
+// print(power(a, b))
 
-//10
-//import java.util.Scanner;
-//public class Main {
-//    static boolean isPalindrome(String s) {
-//        if (s.length() <= 1) return true;
-//        if (s.charAt(0) != s.charAt(s.length() - 1)) return false;
-//        return isPalindrome(s.substring(1, s.length() - 1));
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        String s = sc.nextLine();
-//
-//        if (isPalindrome(s))
-//            System.out.println("Palindrome");
-//        else
-//            System.out.println("Not palindrome");
-//    }
-//}
+// //6
+// def sum_digits(n):
+//     if n < 10:
+//         return n
+//     return n % 10 + sum_digits(n // 10)
 
-//11
-//import java.util.Scanner;
-//public class Main {
-//    static int sumArray(int[] arr, int i) {
-//        if (i == arr.length) return 0;
-//        return arr[i] + sumArray(arr, i + 1);
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//
-//        int n = sc.nextInt();
-//        int[] arr = new int[n];
-//
-//        for (int i = 0; i < n; i++) {
-//            arr[i] = sc.nextInt();
-//        }
-//
-//        System.out.println(sumArray(arr, 0));
-//    }
-//}
+// n = int(input())
+// print(sum_digits(n))
 
-//12
-//import java.util.Scanner;
-//public class Main {
-//    static int findMax(int[] arr, int i) {
-//        if (i == arr.length - 1) return arr[i];
-//        return Math.max(arr[i], findMax(arr, i + 1));
-//    }
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//
-//        int n = sc.nextInt();
-//        int[] arr = new int[n];
-//
-//        for (int i = 0; i < n; i++) {
-//            arr[i] = sc.nextInt();
-//        }
-//
-//        System.out.println(findMax(arr, 0));
-//    }
-//}
+// //7
+// def count_digits(n):
+//     if n < 10:
+//         return 1
+//     return 1 + count_digits(n // 10)
 
-//13
-//import java.util.Scanner;
-//public class Main {
-//    static int countOccurrences(int[] arr, int i, int target) {
-//        if (i == arr.length) return 0;
-//
-//        if (arr[i] == target)
-//            return 1 + countOccurrences(arr, i + 1, target);
-//        else
-//            return countOccurrences(arr, i + 1, target);
-//    }
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//
-//        int n = sc.nextInt();
-//        int[] arr = new int[n];
-//
-//        for (int i = 0; i < n; i++) {
-//            arr[i] = sc.nextInt();
-//        }
-//        int target = sc.nextInt();
-//        System.out.println(countOccurrences(arr, 0, target));
-//    }
-//}
+// n = int(input())
+// print(count_digits(n))
 
-//14
-//import java.util.Scanner;
-//public class Main {
-//    static boolean search(int[] arr, int i, int target) {
-//        if (i == arr.length) return false;
-//        if (arr[i] == target) return true;
-//        return search(arr, i + 1, target);
-//    }
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        int[] arr = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            arr[i] = sc.nextInt();
-//        }
-//        int target = sc.nextInt();
-//        if (search(arr, 0, target))
-//            System.out.println("Found");
-//        else
-//            System.out.println("Not Found");
-//    }
-//}
+// //8
+// def reverse(n):
+//     if n == 0:
+//         return
+//     print(n % 10, end="")
+//     reverse(n // 10)
 
-//15
-//import java.util.Scanner;
-//public class Main {
-//    static boolean isSorted(int[] arr, int i) {
-//        if (i == arr.length - 1) return true;
-//        if (arr[i] > arr[i + 1]) return false;
-//        return isSorted(arr, i + 1);
-//    }
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        int[] arr = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            arr[i] = sc.nextInt();
-//        }
-//        if (isSorted(arr, 0))
-//            System.out.println("Sorted");
-//        else
-//            System.out.println("Not sorted");
-//    }
-//}
+// n = int(input())
+// reverse(n)
 
-//bonus 16
-//import java.util.Scanner;
-//public class Main {
-//    static int binarySearch(int[] arr, int left, int right, int target) {
-//        if (left > right) return -1;
-//        int mid = (left + right) / 2;
-//        if (arr[mid] == target) return mid;
-//        else if (target < arr[mid])
-//            return binarySearch(arr, left, mid - 1, target);
-//        else
-//            return binarySearch(arr, mid + 1, right, target);
-//    }
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        int[] arr = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            arr[i] = sc.nextInt();
-//        }
-//        int target = sc.nextInt();
-//        int result = binarySearch(arr, 0, n - 1, target);
-//        if (result != -1)
-//            System.out.println("Element found at index " + result);
-//        else
-//            System.out.println("Not found");
-//    }
-//}
+// //9
+// def fib(n):
+//     if n == 0:
+//         return 0
+//     if n == 1:
+//         return 1
+//     return fib(n - 1) + fib(n - 2)
+
+// n = int(input())
+// print(fib(n))
+
+// //10
+// def is_palindrome(s):
+//     if len(s) <= 1:
+//         return True
+//     if s[0] != s[-1]:
+//         return False
+//     return is_palindrome(s[1:-1])
+
+// s = input()
+// if is_palindrome(s):
+//     print("Palindrome")
+// else:
+//     print("Not palindrome")
+// //11
+// def sum_array(arr, i):
+//     if i == len(arr):
+//         return 0
+//     return arr[i] + sum_array(arr, i + 1)
+
+// n = int(input())
+// arr = list(map(int, input().split()))
+// print(sum_array(arr, 0))
+  
+// //12
+// def find_max(arr, i):
+//     if i == len(arr) - 1:
+//         return arr[i]
+//     return max(arr[i], find_max(arr, i + 1))
+
+// n = int(input())
+// arr = list(map(int, input().split()))
+// print(find_max(arr, 0))
+
+// //13
+// def count_occurrences(arr, i, target):
+//     if i == len(arr):
+//         return 0
+//     if arr[i] == target:
+//         return 1 + count_occurrences(arr, i + 1, target)
+//     return count_occurrences(arr, i + 1, target)
+
+// n = int(input())
+// arr = list(map(int, input().split()))
+// target = int(input())
+// print(count_occurrences(arr, 0, target))
+
+// //14
+// def search(arr, i, target):
+//     if i == len(arr):
+//         return False
+//     if arr[i] == target:
+//         return True
+//     return search(arr, i + 1, target)
+
+// n = int(input())
+// arr = list(map(int, input().split()))
+// target = int(input())
+
+// if search(arr, 0, target):
+//     print("Found")
+// else:
+//     print("Not Found")
+
+// //15
+// def is_sorted(arr, i):
+//     if i == len(arr) - 1:
+//         return True
+//     if arr[i] > arr[i + 1]:
+//         return False
+//     return is_sorted(arr, i + 1)
+
+// n = int(input())
+// arr = list(map(int, input().split()))
+
+// if is_sorted(arr, 0):
+//     print("Sorted")
+// else:
+//     print("Not sorted")
+
+// //bonus 16
+// def binary_search(arr, left, right, target):
+//     if left > right:
+//         return -1
+//     mid = (left + right) // 2
+//     if arr[mid] == target:
+//         return mid
+//     elif target < arr[mid]:
+//         return binary_search(arr, left, mid - 1, target)
+//     else:
+//         return binary_search(arr, mid + 1, right, target)
+
+// n = int(input())
+// arr = list(map(int, input().split()))
+// target = int(input())
+
+// result = binary_search(arr, 0, n - 1, target)
+
+// if result != -1:
+//     print("Element found at index", result)
+// else:
+//     print("Not found")
