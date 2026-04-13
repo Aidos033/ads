@@ -1,188 +1,157 @@
-# 1
-# def printnum(n):
-#     if n == 0:
-#         return
-#     printnum(n - 1)
-#     print(n, end=" ")
+class Node:
+    pass
 
-# n = int(input())
-# printnum(n)
 
-# 2
-# def print_numbers(n):
-#     if n == 0:
-#         return
-#     print(n, end=" ")
-#     print_numbers(n - 1)
+# 1. Добавление в начало
+def add_to_beginning(head, data):
+    new_node = Node()
+    new_node.data = data
+    new_node.next = head
+    return new_node
 
-# n = int(input())
-# print_numbers(n)
 
-# //3
-# def sum_n(n):
-#     if n == 1:
-#         return 1
-#     return n + sum_n(n - 1)
+# 2. Добавление в конец
+def add_to_end(head, data):
+    new_node = Node()
+    new_node.data = data
+    new_node.next = None
 
-# n = int(input())
-# print(sum_n(n))
+    if head is None:
+        return new_node
 
-# //4
-# def fact(n):
-#     if n == 1:
-#         return 1
-#     return n * fact(n - 1)
+    current = head
+    while current.next:
+        current = current.next
 
-# n = int(input())
-# print(fact(n))
+    current.next = new_node
+    return head
 
-# //5
-# def power(a, b):
-#     if b == 0:
-#         return 1
-#     return a * power(a, b - 1)
 
-# a = int(input())
-# b = int(input())
-# print(power(a, b))
+# 3. Удаление последнего элемента
+def remove_last(head):
+    if head is None:
+        return None
 
-# //6
-# def sum_digits(n):
-#     if n < 10:
-#         return n
-#     return n % 10 + sum_digits(n // 10)
+    if head.next is None:
+        return None
 
-# n = int(input())
-# print(sum_digits(n))
+    current = head
+    while current.next.next:
+        current = current.next
 
-# //7
-# def count_digits(n):
-#     if n < 10:
-#         return 1
-#     return 1 + count_digits(n // 10)
+    current.next = None
+    return head
 
-# n = int(input())
-# print(count_digits(n))
 
-# //8
-# def reverse(n):
-#     if n == 0:
-#         return
-#     print(n % 10, end="")
-#     reverse(n // 10)
+# 4. Вывод списка
+def print_list(head):
+    current = head
+    while current:
+        print(current.data, end=" -> ")
+        current = current.next
+    print("None")
 
-# n = int(input())
-# reverse(n)
 
-# //9
-# def fib(n):
-#     if n == 0:
-#         return 0
-#     if n == 1:
-#         return 1
-#     return fib(n - 1) + fib(n - 2)
+# 5. Поиск элемента
+def search(head, target):
+    current = head
+    index = 0
 
-# n = int(input())
-# print(fib(n))
+    while current:
+        if current.data == target:
+            return index
+        current = current.next
+        index += 1
 
-# //10
-# def is_palindrome(s):
-#     if len(s) <= 1:
-#         return True
-#     if s[0] != s[-1]:
-#         return False
-#     return is_palindrome(s[1:-1])
+    return -1
 
-# s = input()
-# if is_palindrome(s):
-#     print("Palindrome")
-# else:
-#     print("Not palindrome")
-# //11
-# def sum_array(arr, i):
-#     if i == len(arr):
-#         return 0
-#     return arr[i] + sum_array(arr, i + 1)
 
-# n = int(input())
-# arr = list(map(int, input().split()))
-# print(sum_array(arr, 0))
-  
-# //12
-# def find_max(arr, i):
-#     if i == len(arr) - 1:
-#         return arr[i]
-#     return max(arr[i], find_max(arr, i + 1))
+# 6. Вставка по позиции
+def insert_at_position(head, data, position):
+    new_node = Node()
+    new_node.data = data
 
-# n = int(input())
-# arr = list(map(int, input().split()))
-# print(find_max(arr, 0))
+    if position == 0:
+        new_node.next = head
+        return new_node
 
-# //13
-# def count_occurrences(arr, i, target):
-#     if i == len(arr):
-#         return 0
-#     if arr[i] == target:
-#         return 1 + count_occurrences(arr, i + 1, target)
-#     return count_occurrences(arr, i + 1, target)
+    current = head
 
-# n = int(input())
-# arr = list(map(int, input().split()))
-# target = int(input())
-# print(count_occurrences(arr, 0, target))
+    for _ in range(position - 1):
+        if current is None:
+            print("Ошибка: позиция вне диапазона")
+            return head
+        current = current.next
 
-# //14
-# def search(arr, i, target):
-#     if i == len(arr):
-#         return False
-#     if arr[i] == target:
-#         return True
-#     return search(arr, i + 1, target)
+    new_node.next = current.next
+    current.next = new_node
 
-# n = int(input())
-# arr = list(map(int, input().split()))
-# target = int(input())
+    return head
 
-# if search(arr, 0, target):
-#     print("Found")
-# else:
-#     print("Not Found")
 
-# //15
-# def is_sorted(arr, i):
-#     if i == len(arr) - 1:
-#         return True
-#     if arr[i] > arr[i + 1]:
-#         return False
-#     return is_sorted(arr, i + 1)
+# 7. Удаление по значению
+def remove_by_value(head, value):
+    if head is None:
+        return None
 
-# n = int(input())
-# arr = list(map(int, input().split()))
+    if head.data == value:
+        return head.next
 
-# if is_sorted(arr, 0):
-#     print("Sorted")
-# else:
-#     print("Not sorted")
+    current = head
 
-# //bonus 16
-# def binary_search(arr, left, right, target):
-#     if left > right:
-#         return -1
-#     mid = (left + right) // 2
-#     if arr[mid] == target:
-#         return mid
-#     elif target < arr[mid]:
-#         return binary_search(arr, left, mid - 1, target)
-#     else:
-#         return binary_search(arr, mid + 1, right, target)
+    while current.next:
+        if current.next.data == value:
+            current.next = current.next.next
+            return head
+        current = current.next
 
-# n = int(input())
-# arr = list(map(int, input().split()))
-# target = int(input())
+    return head
 
-# result = binary_search(arr, 0, n - 1, target)
 
-# if result != -1:
-#     print("Element found at index", result)
-# else:
-#     print("Not found")
+# 8. Объединение двух списков
+def merge_lists(head1, head2):
+    if head1 is None:
+        return head2
+
+    current = head1
+    while current.next:
+        current = current.next
+
+    current.next = head2
+    return head1
+
+
+# 9. Разворот списка
+def reverse_list(head):
+    prev = None
+    current = head
+
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+
+    return prev
+
+
+# 10. Сортировка (простая)
+def sort_list(head):
+    if head is None:
+        return None
+
+    current = head
+
+    while current:
+        next_node = current.next
+        temp = head
+
+        while temp != current:
+            if temp.data > current.data:
+                temp.data, current.data = current.data, temp.data
+            temp = temp.next
+
+        current = next_node
+
+    return head
+
