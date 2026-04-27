@@ -1,157 +1,268 @@
-class Node:
-    pass
+# #1
+
+# def two_sum(nums, target):
+#     seen = {}
+#     for i, num in enumerate(nums):
+#         complement = target - num
+#         if complement in seen:
+#             return [seen[complement], i]
+#         seen[num] = i
 
 
-# 1. Добавление в начало
-def add_to_beginning(head, data):
-    new_node = Node()
-    new_node.data = data
-    new_node.next = head
-    return new_node
+# numbers = [2, 7, 11, 15]
+# targett = 9
+# print(two_sum(numbers, targett))
+
+# #2
+
+# def first_unique_char(s):
+#     count = {}
+#     for char in s:
+#         count[char] = count.get(char, 0) + 1
+#     for i, char in enumerate(s):
+#         if count[char] == 1:
+#             return i
+#     return -1
+
+# s = "leetcode"
+# print(first_unique_char(s))
+
+# s = "loveleetcode"
+# print(first_unique_char(s))
+
+# #3
+
+# def is_isomorphic(s, t):
+#     s_to_t = {}
+#     t_to_s = {}
+#     for c1, c2 in zip(s, t):
+#         if c1 in s_to_t and s_to_t[c1] != c2:
+#             return False
+#         if c2 in t_to_s and t_to_s[c2] != c1:
+#             return False
+#         s_to_t[c1] = c2
+#         t_to_s[c2] = c1
+#     return True
+
+# s = "egg"
+# t = "add"
+# print(is_isomorphic(s, t))
+
+# #4
+
+# def is_happy(n):
+#     seen = set()
+#     while n != 1:
+#         n = sum(int(d) ** 2 for d in str(n))
+#         if n in seen:
+#             return False
+#         seen.add(n)
+#     return True
+
+# n = 19
+# print(is_happy(n))
+
+# #5
+
+# from collections import deque
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# def level_order(root):
+#     if not root:
+#         return []
+#     result = []
+#     queue = deque([root])
+#     while queue:
+#         level = []
+#         for _ in range(len(queue)):
+#             node = queue.popleft()
+#             level.append(node.val)
+#             if node.left:
+#                 queue.append(node.left)
+#             if node.right:
+#                 queue.append(node.right)
+#         result.append(level)
+#     return result
+
+# root = TreeNode(3)
+# root.left = TreeNode(9)
+# root.right = TreeNode(20)
+# root.right.left = TreeNode(15)
+# root.right.right = TreeNode(7)
+# print(level_order(root))
+
+# #6
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# def max_depth(root):
+#     if not root:
+#         return 0
+#     return 1 + max(max_depth(root.left), max_depth(root.right))
+
+# root = TreeNode(3)
+# root.left = TreeNode(9)
+# root.right = TreeNode(20)
+# root.right.left = TreeNode(15)
+# root.right.right = TreeNode(7)
+# print(max_depth(root))
+
+# #7
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# def is_symmetric(root):
+#     def mirror(left, right):
+#         if not left and not right:
+#             return True
+#         if not left or not right:
+#             return False
+#         return left.val == right.val and mirror(left.left, right.right) and mirror(left.right, right.left)
+#     return mirror(root.left, root.right)
+
+# root = TreeNode(1)
+# root.left = TreeNode(2)
+# root.right = TreeNode(2)
+# root.left.left = TreeNode(3)
+# root.left.right = TreeNode(4)
+# root.right.left = TreeNode(4)
+# root.right.right = TreeNode(3)
+# print(is_symmetric(root))
+
+# #8
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
 
-# 2. Добавление в конец
-def add_to_end(head, data):
-    new_node = Node()
-    new_node.data = data
-    new_node.next = None
+# def longest_consecutive(root):
+#     def dfs(node, parent, length):
+#         if not node:
+#             return length
+#         if node.val == parent + 1:
+#             length += 1
+#         else:
+#             length = 1
+#         left = dfs(node.left, node.val, length)
+#         right = dfs(node.right, node.val, length)
+#         return max(length, left, right)
+#     return dfs(root, float('-inf'), 0)
 
-    if head is None:
-        return new_node
+# root = TreeNode(1)
+# root.right = TreeNode(3)
+# root.right.left = TreeNode(2)
+# root.right.right = TreeNode(4)
+# root.right.right.right = TreeNode(5)
+# print(longest_consecutive(root))
 
-    current = head
-    while current.next:
-        current = current.next
+# #9
 
-    current.next = new_node
-    return head
+# def sort_colors(nums):
+#     low, mid, high = 0, 0, len(nums) - 1
+#     while mid <= high:
+#         if nums[mid] == 0:
+#             nums[low], nums[mid] = nums[mid], nums[low]
+#             low += 1
+#             mid += 1
+#         elif nums[mid] == 1:
+#             mid += 1
+#         else:
+#             nums[mid], nums[high] = nums[high], nums[mid]
+#             high -= 1
 
+# nums = [2, 0, 2, 1, 1, 0]
+# sort_colors(nums)
+# print(nums)
 
-# 3. Удаление последнего элемента
-def remove_last(head):
-    if head is None:
-        return None
+# #10
 
-    if head.next is None:
-        return None
+# def quick_sort(nums, low, high):
+#     if low < high:
+#         pivot = nums[high]
+#         i = low - 1
+#         for j in range(low, high):
+#             if nums[j] <= pivot:
+#                 i += 1
+#                 nums[i], nums[j] = nums[j], nums[i]
+#         nums[i + 1], nums[high] = nums[high], nums[i + 1]
+#         pi = i + 1
+#         quick_sort(nums, low, pi - 1)
+#         quick_sort(nums, pi + 1, high)
 
-    current = head
-    while current.next.next:
-        current = current.next
+# nums = [3, 6, 8, 10, 1, 2, 1]
+# quick_sort(nums, 0, len(nums) - 1)
+# print(nums)
 
-    current.next = None
-    return head
+# #11
 
+# def merge_sort(nums):
+#     if len(nums) <= 1:
+#         return
+#     mid = len(nums) // 2
+#     left = nums[:mid]
+#     right = nums[mid:]
+#     merge_sort(left)
+#     merge_sort(right)
+#     i = j = k = 0
+#     while i < len(left) and j < len(right):
+#         if left[i] <= right[j]:
+#             nums[k] = left[i]
+#             i += 1
+#         else:
+#             nums[k] = right[j]
+#             j += 1
+#         k += 1
+#     while i < len(left):
+#         nums[k] = left[i]
+#         i += 1
+#         k += 1
+#     while j < len(right):
+#         nums[k] = right[j]
+#         j += 1
+#         k += 1
 
-# 4. Вывод списка
-def print_list(head):
-    current = head
-    while current:
-        print(current.data, end=" -> ")
-        current = current.next
-    print("None")
+# nums = [3, 6, 8, 10, 1, 2, 1]
+# merge_sort(nums)
+# print(nums)
 
+# #12
 
-# 5. Поиск элемента
-def search(head, target):
-    current = head
-    index = 0
+# def heap_sort(nums):
+#     n = len(nums)
+#     for i in range(n // 2 - 1, -1, -1):
+#         heapify(nums, n, i)
+#     for i in range(n - 1, 0, -1):
+#         nums[0], nums[i] = nums[i], nums[0]
+#         heapify(nums, i, 0)
 
-    while current:
-        if current.data == target:
-            return index
-        current = current.next
-        index += 1
+# def heapify(nums, n, i):
+#     largest = i
+#     left = 2 * i + 1
+#     right = 2 * i + 2
+#     if left < n and nums[left] > nums[largest]:
+#         largest = left
+#     if right < n and nums[right] > nums[largest]:
+#         largest = right
+#     if largest != i:
+#         nums[i], nums[largest] = nums[largest], nums[i]
+#         heapify(nums, n, largest)
 
-    return -1
-
-
-# 6. Вставка по позиции
-def insert_at_position(head, data, position):
-    new_node = Node()
-    new_node.data = data
-
-    if position == 0:
-        new_node.next = head
-        return new_node
-
-    current = head
-
-    for _ in range(position - 1):
-        if current is None:
-            print("Ошибка: позиция вне диапазона")
-            return head
-        current = current.next
-
-    new_node.next = current.next
-    current.next = new_node
-
-    return head
-
-
-# 7. Удаление по значению
-def remove_by_value(head, value):
-    if head is None:
-        return None
-
-    if head.data == value:
-        return head.next
-
-    current = head
-
-    while current.next:
-        if current.next.data == value:
-            current.next = current.next.next
-            return head
-        current = current.next
-
-    return head
-
-
-# 8. Объединение двух списков
-def merge_lists(head1, head2):
-    if head1 is None:
-        return head2
-
-    current = head1
-    while current.next:
-        current = current.next
-
-    current.next = head2
-    return head1
-
-
-# 9. Разворот списка
-def reverse_list(head):
-    prev = None
-    current = head
-
-    while current:
-        next_node = current.next
-        current.next = prev
-        prev = current
-        current = next_node
-
-    return prev
-
-
-# 10. Сортировка (простая)
-def sort_list(head):
-    if head is None:
-        return None
-
-    current = head
-
-    while current:
-        next_node = current.next
-        temp = head
-
-        while temp != current:
-            if temp.data > current.data:
-                temp.data, current.data = current.data, temp.data
-            temp = temp.next
-
-        current = next_node
-
-    return head
-
+# nums = [3, 6, 8, 10, 1, 2, 1]
+# heap_sort(nums)
+# print(nums)
